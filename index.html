@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNow</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="loginController">
+    <div class="background-image">
+        <header>
+            <div class="logo">
+                <img src="/photos/lg1.png" alt="Logo">
+            </div>
+        </header>
+        
+        <div class="login-container">
+            <h2>Login</h2>
+            <form ng-submit="login()" name="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" name="email" ng-model="formData.email" required>
+                    <div ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Email is required.</div>
+                    <div ng-show="loginForm.email.$dirty && loginForm.email.$error.email">Invalid email format.</div>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" ng-model="formData.password" required>
+                    <div ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Password is required.</div>
+                </div>
+                <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
